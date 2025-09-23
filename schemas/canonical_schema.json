@@ -1,0 +1,233 @@
+{
+  "property_info": {
+    "address": {
+      "type": "string",
+      "required": true,
+      "description": "Full property address"
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "state": {
+      "type": "string",
+      "required": true
+    },
+    "zip_code": {
+      "type": "string",
+      "required": true
+    },
+    "property_type": {
+      "type": "string",
+      "enum": ["multifamily", "office", "retail", "industrial", "hotel", "mixed_use"],
+      "required": true
+    },
+    "property_class": {
+      "type": "string",
+      "enum": ["class_a", "class_b", "class_c"],
+      "required": true
+    },
+    "year_built": {
+      "type": "integer",
+      "required": true
+    },
+    "total_sqft": {
+      "type": "number",
+      "required": true,
+      "unit": "square_feet"
+    },
+    "total_units": {
+      "type": "integer",
+      "required": false,
+      "description": "For multifamily properties"
+    }
+  },
+  "financial_metrics": {
+    "purchase_price": {
+      "type": "number",
+      "required": true,
+      "unit": "usd"
+    },
+    "current_occupancy": {
+      "type": "number",
+      "required": true,
+      "unit": "percentage",
+      "min": 0,
+      "max": 100
+    },
+    "t12_revenue": {
+      "type": "number",
+      "required": true,
+      "unit": "usd_per_year"
+    },
+    "t12_expenses": {
+      "type": "number",
+      "required": true,
+      "unit": "usd_per_year"
+    },
+    "t12_noi": {
+      "type": "number",
+      "required": true,
+      "unit": "usd_per_year"
+    },
+    "pro_forma_revenue": {
+      "type": "number",
+      "required": false,
+      "unit": "usd_per_year"
+    },
+    "pro_forma_expenses": {
+      "type": "number",
+      "required": false,
+      "unit": "usd_per_year"
+    },
+    "pro_forma_noi": {
+      "type": "number",
+      "required": false,
+      "unit": "usd_per_year"
+    },
+    "rent_per_sqft": {
+      "type": "number",
+      "required": false,
+      "unit": "usd_per_sqft_per_year"
+    },
+    "rent_per_unit": {
+      "type": "number",
+      "required": false,
+      "unit": "usd_per_unit_per_year"
+    }
+  },
+  "debt_info": {
+    "loan_amount": {
+      "type": "number",
+      "required": true,
+      "unit": "usd"
+    },
+    "ltv_ratio": {
+      "type": "number",
+      "required": true,
+      "unit": "percentage",
+      "min": 0,
+      "max": 100
+    },
+    "interest_rate": {
+      "type": "number",
+      "required": true,
+      "unit": "percentage_per_year"
+    },
+    "loan_term_years": {
+      "type": "integer",
+      "required": true
+    },
+    "dscr": {
+      "type": "number",
+      "required": true,
+      "description": "Debt Service Coverage Ratio"
+    },
+    "amortization_years": {
+      "type": "integer",
+      "required": false
+    }
+  },
+  "investment_metrics": {
+    "entry_cap_rate": {
+      "type": "number",
+      "required": true,
+      "unit": "percentage"
+    },
+    "exit_cap_rate": {
+      "type": "number",
+      "required": false,
+      "unit": "percentage"
+    },
+    "target_irr": {
+      "type": "number",
+      "required": true,
+      "unit": "percentage"
+    },
+    "target_equity_multiple": {
+      "type": "number",
+      "required": true
+    },
+    "hold_period_years": {
+      "type": "number",
+      "required": true
+    },
+    "total_return": {
+      "type": "number",
+      "required": false,
+      "unit": "percentage"
+    }
+  },
+  "fees": {
+    "acquisition_fee": {
+      "type": "number",
+      "required": false,
+      "unit": "percentage"
+    },
+    "asset_management_fee": {
+      "type": "number",
+      "required": false,
+      "unit": "percentage_per_year"
+    },
+    "disposition_fee": {
+      "type": "number",
+      "required": false,
+      "unit": "percentage"
+    },
+    "promote_percentage": {
+      "type": "number",
+      "required": false,
+      "unit": "percentage"
+    },
+    "preferred_return": {
+      "type": "number",
+      "required": false,
+      "unit": "percentage_per_year"
+    }
+  },
+  "market_data": {
+    "market_rent_per_sqft": {
+      "type": "number",
+      "required": false,
+      "unit": "usd_per_sqft_per_year"
+    },
+    "market_cap_rate": {
+      "type": "number",
+      "required": false,
+      "unit": "percentage"
+    },
+    "market_vacancy_rate": {
+      "type": "number",
+      "required": false,
+      "unit": "percentage"
+    },
+    "market_expenses_per_sqft": {
+      "type": "number",
+      "required": false,
+      "unit": "usd_per_sqft_per_year"
+    }
+  },
+  "metadata": {
+    "source_document": {
+      "type": "string",
+      "required": true,
+      "description": "Original document filename"
+    },
+    "extraction_date": {
+      "type": "string",
+      "format": "date-time",
+      "required": true
+    },
+    "confidence_score": {
+      "type": "number",
+      "required": true,
+      "min": 0,
+      "max": 1
+    },
+    "extraction_method": {
+      "type": "string",
+      "enum": ["gp_document", "market_data"],
+      "required": true
+    }
+  }
+}

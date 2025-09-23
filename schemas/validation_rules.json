@@ -1,0 +1,72 @@
+{
+  "validation_rules": {
+    "financial_consistency": {
+      "noi_calculation": {
+        "rule": "t12_noi = t12_revenue - t12_expenses",
+        "tolerance": 0.01,
+        "description": "NOI should equal revenue minus expenses"
+      },
+      "dscr_calculation": {
+        "rule": "dscr = t12_noi / debt_service",
+        "tolerance": 0.1,
+        "description": "DSCR should be approximately NOI divided by debt service"
+      },
+      "ltv_consistency": {
+        "rule": "ltv_ratio = loan_amount / purchase_price * 100",
+        "tolerance": 0.01,
+        "description": "LTV should equal loan amount divided by purchase price"
+      }
+    },
+    "value_ranges": {
+      "occupancy": {
+        "min": 0,
+        "max": 100,
+        "description": "Occupancy rate should be between 0-100%"
+      },
+      "ltv_ratio": {
+        "min": 0,
+        "max": 100,
+        "description": "LTV should be between 0-100%"
+      },
+      "dscr": {
+        "min": 0.5,
+        "max": 3.0,
+        "description": "DSCR typically ranges from 0.5 to 3.0"
+      },
+      "cap_rate": {
+        "min": 2.0,
+        "max": 15.0,
+        "description": "Cap rates typically range from 2-15%"
+      },
+      "irr": {
+        "min": 5.0,
+        "max": 30.0,
+        "description": "Target IRR typically ranges from 5-30%"
+      }
+    },
+    "market_comparison": {
+      "rent_variance": {
+        "threshold": 0.3,
+        "description": "Flag if GP rent differs from market rent by more than 30%"
+      },
+      "cap_rate_variance": {
+        "threshold": 0.2,
+        "description": "Flag if GP cap rate differs from market cap rate by more than 20%"
+      },
+      "expense_variance": {
+        "threshold": 0.4,
+        "description": "Flag if GP expenses differ from market expenses by more than 40%"
+      }
+    },
+    "temporal_plausibility": {
+      "pro_forma_growth": {
+        "max_annual_growth": 0.15,
+        "description": "Flag if pro forma growth exceeds 15% annually"
+      },
+      "exit_cap_assumption": {
+        "rule": "exit_cap_rate should be reasonable relative to entry_cap_rate and market conditions",
+        "description": "Exit cap rate should be realistic"
+      }
+    }
+  }
+}
