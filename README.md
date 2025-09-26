@@ -94,6 +94,10 @@ Hunting-Party/
 ├── frontend/                 # React frontend
 ├── schemas/                  # Data schemas and validation
 ├── data/                     # Data storage
+├── docs/                     # Documentation
+│   ├── postgresql-setup.md   # PostgreSQL setup guide
+│   ├── team-database-strategy.md # Database access options
+│   └── quick-start-postgresql.md # Quick setup for team
 ├── scripts/                  # Setup and utility scripts
 └── tests/                    # Test files
 ```
@@ -136,6 +140,13 @@ Run the test suite:
 ```bash
 python scripts/data_pipeline.py test
 ```
+
+## 📚 Documentation
+
+### **Database Setup**
+- **[Quick Start PostgreSQL](docs/quick-start-postgresql.md)** - 5-minute setup for team members
+- **[PostgreSQL Setup Guide](docs/postgresql-setup.md)** - Detailed PostgreSQL configuration
+- **[Team Database Strategy](docs/team-database-strategy.md)** - Database access options for team collaboration
 
 ## 🎓 Key Features
 
